@@ -1,2 +1,2 @@
-# vhsic-h-d-l
+# VHDL-Notebook
 Contains VHDL netlists of basic digital circuits.
