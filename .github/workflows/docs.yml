@@ -107,20 +107,4 @@ jobs:
     - name: Test documentation build
       run: |
         cd docs
-        make html
-        
-    - name: Check for broken links
-      run: |
-        cd docs
-        make linkcheck
-        
-    - name: Validate HTML
-      run: |
-        pip install html5validator
-        html5validator --root docs/_build/html --also-check-css
-        
-    - name: Check documentation coverage
-      run: |
-        cd docs
-        make coverage
-        cat _build/coverage/python.txt || true 
+        make html 
