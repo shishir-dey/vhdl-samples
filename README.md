@@ -1,6 +1,6 @@
 # VHDL Digital Design Samples
 
-[![VHDL Tests](https://github.com/shishir-dey/vhdl-samples/actions/workflows/test.yml/badge.svg)](https://github.com/shishir-dey/vhdl-samples/actions/workflows/test.yml)
+[![VHDL Tests](https://github.com/shishir-dey/vhdl-samples/actions/workflows/test.yml/badge.svg)](https://github.com/shishir-dey/vhdl-samples/actions/workflows/test.yml) [![Documentation Status](https://github.com/shishir-dey/vhdl-samples/actions/workflows/docs.yml/badge.svg)](https://github.com/shishir-dey/vhdl-samples/actions/workflows/docs.yml)
 
 A comprehensive collection of VHDL designs for digital circuits, organized by category and featuring a complete test suite with automated CI/CD.
 
