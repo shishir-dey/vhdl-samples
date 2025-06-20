@@ -8,9 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: "pages"
@@ -62,28 +60,14 @@ jobs:
         cd docs
         make html
         
-    - name: Setup Pages
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-      uses: actions/configure-pages@v3
-      
-    - name: Upload artifact
-      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: docs/_build/html
-
-  deploy:
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build-docs
-    
-    steps:
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+      if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_build/html
+        publish_branch: gh-pages
+        force_orphan: true
       
   test-docs:
     runs-on: ubuntu-latest
