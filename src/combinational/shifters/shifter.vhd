@@ -1,0 +1,18 @@
+----------------------------------------------------------------------------------
+-- Engineer: Shishir Dey
+-- Create Date: 06/20/2025 03:24:14 PM
+-- Design Name: Combinational Logic - Shifters
+-- Module Name: shifter
+-- Project Name: VHDL Digital Design Samples
+-- Target Devices: Generic FPGA/ASIC
+-- Tool Versions: GHDL 5.0.1, Make 3.81
+-- Description: Basic shifter implementation
+-- 
+-- Dependencies: IEEE.STD_LOGIC_1164
+-- 
+-- Revision:
+-- Revision 1.0 - Complete reorganization and standardization
+-- Additional Comments: Part of comprehensive VHDL learning repository
+-- 
+----------------------------------------------------------------------------------
+
