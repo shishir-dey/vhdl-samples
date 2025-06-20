@@ -152,4 +152,32 @@ test-dff: check-ghdl $(WORK_DIR) ## Test D flip-flop specifically
 	$(GHDL) -a ../test/sequential/flip_flops/d_flip_flop_tb.vhd && \
 	$(GHDL) -e d_flip_flop_tb && \
 	$(GHDL) -r d_flip_flop_tb --vcd=d_flip_flop.vcd --stop-time=1ms && \
-	echo "$(GREEN)✓ D Flip-Flop test completed (VCD saved)$(NC)" 
+	echo "$(GREEN)✓ D Flip-Flop test completed (VCD saved)$(NC)"
+
+# Documentation targets
+docs: ## Build documentation
+	@echo "$(BLUE)📖 Building documentation...$(NC)"
+	@cd docs && make html
+	@echo "$(GREEN)✓ Documentation built successfully!$(NC)"
+	@echo "  📍 Open: docs/_build/html/index.html"
+
+docs-serve: ## Serve documentation locally
+	@echo "$(BLUE)🌐 Starting documentation server...$(NC)"
+	@cd docs && make serve
+
+docs-clean: ## Clean documentation build
+	@echo "$(BLUE)🧹 Cleaning documentation build...$(NC)"
+	@cd docs && make clean-all
+
+docs-dev: ## Build and serve documentation in development mode
+	@echo "$(BLUE)🔧 Building documentation in development mode...$(NC)"
+	@cd docs && make dev
+
+docs-check: ## Check documentation for issues
+	@echo "$(BLUE)🔍 Checking documentation...$(NC)"
+	@cd docs && make linkcheck
+
+docs-install: ## Install documentation dependencies
+	@echo "$(BLUE)📦 Installing documentation dependencies...$(NC)"
+	@pip install -r docs/requirements.txt
+	@echo "$(GREEN)✓ Documentation dependencies installed!$(NC)" 
