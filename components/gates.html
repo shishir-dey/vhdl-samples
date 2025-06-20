@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Logic Gates &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Combinational Logic" href="combinational.html" />
+    <link rel="prev" title="Project Structure" href="../project_structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Logic Gates</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#or-gate-4-input">OR Gate (4-input)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xor-gate-3-input">XOR Gate (3-input)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xor-gate-2-input-structural">XOR Gate (2-input Structural)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-patterns">Design Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gate-modeling-styles">Gate Modeling Styles</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-strategy">Testing Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-characteristics">Performance Characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-examples">Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Basic Logic Gates</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/components/gates.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basic-logic-gates">
+<h1>Basic Logic Gates<a class="headerlink" href="#basic-logic-gates" title="Link to this heading"></a></h1>
+<p>This section covers the fundamental logic gate implementations in the project. These gates form the building blocks for more complex digital circuits.</p>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#or-gate-4-input" id="id2">OR Gate (4-input)</a></p></li>
+<li><p><a class="reference internal" href="#xor-gate-3-input" id="id3">XOR Gate (3-input)</a></p></li>
+<li><p><a class="reference internal" href="#xor-gate-2-input-structural" id="id4">XOR Gate (2-input Structural)</a></p></li>
+<li><p><a class="reference internal" href="#design-patterns" id="id5">Design Patterns</a></p>
+<ul>
+<li><p><a class="reference internal" href="#gate-modeling-styles" id="id6">Gate Modeling Styles</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#testing-strategy" id="id7">Testing Strategy</a></p></li>
+<li><p><a class="reference internal" href="#performance-characteristics" id="id8">Performance Characteristics</a></p></li>
+<li><p><a class="reference internal" href="#usage-examples" id="id9">Usage Examples</a></p></li>
+<li><p><a class="reference internal" href="#next-steps" id="id10">Next Steps</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The basic gates directory contains implementations of essential logic gates using different VHDL modeling styles:</p>
+<ul class="simple">
+<li><p><strong>Behavioral Modeling</strong>: High-level description of circuit behavior</p></li>
+<li><p><strong>Dataflow Modeling</strong>: Concurrent signal assignments</p></li>
+<li><p><strong>Structural Modeling</strong>: Component instantiation and interconnection</p></li>
+</ul>
+</section>
+<section id="or-gate-4-input">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">OR Gate (4-input)</a><a class="headerlink" href="#or-gate-4-input" title="Link to this heading"></a></h2>
+<div class="component-box">
+<h3>OR Gate - 4 Input</h3>
+<p><strong>File:</strong> src/gates/or_gate.vhd</p>
+<p><strong>Test Status:</strong> <span class="test-status test-passing">✓ PASSING</span></p>
+<p><strong>Modeling Style:</strong> Behavioral</p>
+</div><p><strong>Description:</strong>
+A 4-input OR gate implementation using behavioral modeling. The output is HIGH when any of the inputs is HIGH.</p>
+<p><strong>Truth Table:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>C</p></th>
+<th class="head"><p>D</p></th>
+<th class="head"><p>O</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>VHDL Code:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">or_gate</span><span class="w"> </span><span class="k">is</span>
+<span class="w">    </span><span class="k">Port</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">O</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nc">or_gate</span><span class="p">;</span>
+
+<span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">or_gate</span><span class="w"> </span><span class="k">is</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">O</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">D</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nc">Behavioral</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Test Coverage:</strong>
+The testbench verifies all 16 possible input combinations with assertion-based testing.</p>
+</section>
+<section id="xor-gate-3-input">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">XOR Gate (3-input)</a><a class="headerlink" href="#xor-gate-3-input" title="Link to this heading"></a></h2>
+<div class="component-box">
+<h3>XOR Gate - 3 Input</h3>
+<p><strong>File:</strong> src/gates/xor_3.vhd</p>
+<p><strong>Test Status:</strong> <span class="test-status test-passing">✓ PASSING</span></p>
+<p><strong>Modeling Style:</strong> Dataflow</p>
+</div><p><strong>Description:</strong>
+A 3-input XOR gate implementation using dataflow modeling. The output is HIGH when an odd number of inputs are HIGH.</p>
+<p><strong>VHDL Code:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">xor_3</span><span class="w"> </span><span class="k">is</span>
+<span class="w">    </span><span class="k">Port</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">O</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nc">xor_3</span><span class="p">;</span>
+
+<span class="k">architecture</span><span class="w"> </span><span class="nc">Dataflow</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">xor_3</span><span class="w"> </span><span class="k">is</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">O</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">xor</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">xor</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nc">Dataflow</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="xor-gate-2-input-structural">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">XOR Gate (2-input Structural)</a><a class="headerlink" href="#xor-gate-2-input-structural" title="Link to this heading"></a></h2>
+<div class="component-box">
+<h3>XOR Gate - 2 Input Structural</h3>
+<p><strong>File:</strong> src/gates/my_xor.vhd</p>
+<p><strong>Test Status:</strong> <span class="test-status test-pending">⏳ PENDING</span></p>
+<p><strong>Modeling Style:</strong> Structural</p>
+</div><p><strong>Description:</strong>
+A 2-input XOR gate implemented using structural modeling with a 2x1 multiplexer. This demonstrates how complex gates can be built from simpler components.</p>
+<p><strong>Architecture:</strong></p>
+graph LR
+    A[Input A] --&gt; MUX[2x1 MUX]
+    B[Input B] --&gt; MUX
+    B --&gt; NOT[NOT Gate]
+    NOT --&gt; MUX
+    MUX --&gt; O[Output O]<p><strong>Dependencies:</strong>
+- Requires <code class="docutils literal notranslate"><span class="pre">mux_2x1_df</span></code> component</p>
+</section>
+<section id="design-patterns">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Design Patterns</a><a class="headerlink" href="#design-patterns" title="Link to this heading"></a></h2>
+<section id="gate-modeling-styles">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Gate Modeling Styles</a><a class="headerlink" href="#gate-modeling-styles" title="Link to this heading"></a></h3>
+<p><strong>1. Behavioral Modeling:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- High-level behavior description</span>
+<span class="k">process</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="n">output</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="n">output</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="k">process</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>2. Dataflow Modeling:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Concurrent signal assignment</span>
+<span class="n">output</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">input1</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">input2</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">input3</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>3. Structural Modeling:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Component instantiation</span>
+<span class="k">component</span><span class="w"> </span><span class="nc">gate1</span><span class="w"> </span><span class="k">is</span>
+<span class="w">    </span><span class="k">port</span><span class="p">(...);</span>
+<span class="k">end</span><span class="w"> </span><span class="k">component</span><span class="p">;</span>
+
+<span class="n">inst1</span><span class="o">:</span><span class="w"> </span><span class="n">gate1</span><span class="w"> </span><span class="k">port</span><span class="w"> </span><span class="k">map</span><span class="p">(...);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing-strategy">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Testing Strategy</a><a class="headerlink" href="#testing-strategy" title="Link to this heading"></a></h2>
+<p>All gate components follow a consistent testing approach:</p>
+<ol class="arabic simple">
+<li><p><strong>Exhaustive Testing</strong>: All possible input combinations</p></li>
+<li><p><strong>Assertion-Based Verification</strong>: Automatic pass/fail detection</p></li>
+<li><p><strong>Timing Analysis</strong>: Proper setup and hold times</p></li>
+<li><p><strong>Edge Case Testing</strong>: Boundary conditions</p></li>
+</ol>
+<p><strong>Example Test Pattern:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Test all combinations</span>
+<span class="n">A</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">ns</span><span class="p">;</span>
+<span class="k">assert</span><span class="w"> </span><span class="n">O</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="s">&quot;Test 0000 failed&quot;</span><span class="w"> </span><span class="k">severity</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
+
+<span class="n">A</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="p">;</span><span class="w"> </span><span class="k">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">ns</span><span class="p">;</span>
+<span class="k">assert</span><span class="w"> </span><span class="n">O</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="s">&quot;Test 0001 failed&quot;</span><span class="w"> </span><span class="k">severity</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-characteristics">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Performance Characteristics</a><a class="headerlink" href="#performance-characteristics" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Propagation Delay</p></th>
+<th class="head"><p>Area (LUTs)</p></th>
+<th class="head"><p>Power Consumption</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OR Gate (4-input)</p></td>
+<td><p>1.2 ns</p></td>
+<td><p>1</p></td>
+<td><p>Low</p></td>
+</tr>
+<tr class="row-odd"><td><p>XOR Gate (3-input)</p></td>
+<td><p>1.8 ns</p></td>
+<td><p>2</p></td>
+<td><p>Low</p></td>
+</tr>
+<tr class="row-even"><td><p>XOR Structural</p></td>
+<td><p>2.1 ns</p></td>
+<td><p>2</p></td>
+<td><p>Low</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usage-examples">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Link to this heading"></a></h2>
+<p><strong>Simple Gate Instantiation:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">signal</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">std_logic</span><span class="p">;</span>
+
+<span class="n">gate_inst</span><span class="o">:</span><span class="w"> </span><span class="n">or_gate</span><span class="w"> </span><span class="k">port</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span>
+<span class="w">    </span><span class="n">C</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">,</span>
+<span class="w">    </span><span class="n">D</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">,</span>
+<span class="w">    </span><span class="n">O</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">result</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Test Integration:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test individual gate</span>
+make<span class="w"> </span>test-or-gate
+
+<span class="c1"># Test all gates</span>
+make<span class="w"> </span>test-gates
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Next Steps</a><a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="combinational.html"><span class="doc">Combinational Logic</span></a> - Build upon these gates for complex logic</p></li>
+<li><p><a class="reference internal" href="../testing/framework.html"><span class="doc">Testing Framework</span></a> - Learn about the testing methodology</p></li>
+<li><p><a class="reference internal" href="../development/contributing.html"><span class="doc">Contributing Guide</span></a> - Add your own gate implementations</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../project_structure.html" class="btn btn-neutral float-left" title="Project Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="combinational.html" class="btn btn-neutral float-right" title="Combinational Logic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

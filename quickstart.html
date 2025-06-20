@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start Guide &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script src="_static/tabs.js?v=3030b3cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Structure" href="project_structure.html" />
+    <link rel="prev" title="Installation Guide" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#explore-different-categories">🧪 Explore Different Categories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-gates">Basic Gates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combinational-logic">Combinational Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sequential-logic">Sequential Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#next-steps">🎯 Next Steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#learn-the-architecture">Learn the Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#try-different-components">Try Different Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-your-own">Build Your Own</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#understand-the-testing-framework">Understand the Testing Framework</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#tips-and-tricks">💡 Tips and Tricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#editor-setup">Editor Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#troubleshooting">🆘 Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testing/framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing/coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing/ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quick Start Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-start-guide">
+<h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Link to this heading"></a></h1>
+<p>Get up and running with VHDL Digital Design Samples in just a few minutes!</p>
+</section>
+<section id="minute-setup">
+<h1>⚡ 5-Minute Setup<a class="headerlink" href="#minute-setup" title="Link to this heading"></a></h1>
+<p><strong>Prerequisites:</strong> Git and terminal access</p>
+<ol class="arabic">
+<li><p><strong>Clone and enter the project:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/shishir-dey/vhdl-samples.git
+<span class="nb">cd</span><span class="w"> </span>vhdl-samples
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install GHDL:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">macOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Ubuntu/Debian</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Windows</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>ghdl
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ghdl
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>Use WSL and follow Ubuntu instructions</p>
+</div></div>
+</li>
+<li><p><strong>Run your first test:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>🎉 All tests passed!
+Total Tests: 8, Passed: 8, Failed: 0
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="your-first-vhdl-component">
+<h1>🚀 Your First VHDL Component<a class="headerlink" href="#your-first-vhdl-component" title="Link to this heading"></a></h1>
+<p>Let’s examine and test a simple OR gate:</p>
+<ol class="arabic">
+<li><p><strong>Look at the source code:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>src/gates/or_gate.vhd
+</pre></div>
+</div>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">or_gate</span><span class="w"> </span><span class="k">is</span>
+<span class="w">    </span><span class="k">Port</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">C</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">;</span>
+<span class="w">           </span><span class="n">O</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">STD_LOGIC</span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="nc">or_gate</span><span class="p">;</span>
+
+<span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">or_gate</span><span class="w"> </span><span class="k">is</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="n">O</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">D</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="nc">Behavioral</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Check the testbench:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>test/gates/or_gate_tb.vhd
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run the specific test:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-or-gate
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Testing: or_gate_tb
+✓ Test passed
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="explore-different-categories">
+<h1>🧪 Explore Different Categories<a class="headerlink" href="#explore-different-categories" title="Link to this heading"></a></h1>
+<p>Test components by category:</p>
+<section id="basic-gates">
+<h2>Basic Gates<a class="headerlink" href="#basic-gates" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-gates
+<span class="c1"># Tests: OR gate, XOR gates</span>
+</pre></div>
+</div>
+</section>
+<section id="combinational-logic">
+<h2>Combinational Logic<a class="headerlink" href="#combinational-logic" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-combinational
+<span class="c1"># Tests: Adders, Decoders, Multiplexers</span>
+</pre></div>
+</div>
+</section>
+<section id="sequential-logic">
+<h2>Sequential Logic<a class="headerlink" href="#sequential-logic" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-sequential
+<span class="c1"># Tests: Flip-flops, Registers</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="project-overview">
+<h1>📊 Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h1>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>stats
+</pre></div>
+</div>
+<p>Sample output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>VHDL Digital Design Samples - Project Statistics
+================================================
+
+Directory Structure:
+📁 src/
+├── 📁 gates/ (3 files)
+├── 📁 combinational/ (19 files)
+└── 📁 sequential/ (10 files)
+
+📁 test/ (8 files)
+
+Lines of Code: 1,754
+Components: 32
+Test Coverage: 25%
+</pre></div>
+</div>
+</section>
+<section id="next-steps">
+<h1>🎯 Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h1>
+<p>Now that you’re set up, here are some things to try:</p>
+<section id="learn-the-architecture">
+<h2>Learn the Architecture<a class="headerlink" href="#learn-the-architecture" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Explore the project structure:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tree<span class="w"> </span>src/
+</pre></div>
+</div>
+</li>
+<li><p><strong>Read component documentation:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="components/gates.html"><span class="doc">Basic Logic Gates</span></a> - Basic logic gates</p></li>
+<li><p><a class="reference internal" href="components/combinational.html"><span class="doc">Combinational Logic</span></a> - Adders, decoders, multiplexers</p></li>
+<li><p><a class="reference internal" href="components/sequential.html"><span class="doc">Sequential Logic</span></a> - Flip-flops, registers, counters</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="try-different-components">
+<h2>Try Different Components<a class="headerlink" href="#try-different-components" title="Link to this heading"></a></h2>
+<p><strong>Test a more complex component:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test a 4-bit ripple carry adder</span>
+make<span class="w"> </span>test-rc-adder
+
+<span class="c1"># Test a 2x4 decoder</span>
+make<span class="w"> </span>test-decoder
+
+<span class="c1"># Test a D flip-flop</span>
+make<span class="w"> </span>test-dff
+</pre></div>
+</div>
+<p><strong>Examine the VHDL code:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at different modeling styles</span>
+cat<span class="w"> </span>src/combinational/adders/fa_behaviour.vhd<span class="w">    </span><span class="c1"># Behavioral</span>
+cat<span class="w"> </span>src/combinational/adders/fa_dataflow.vhd<span class="w">     </span><span class="c1"># Dataflow</span>
+cat<span class="w"> </span>src/combinational/adders/fa_structural.vhd<span class="w">   </span><span class="c1"># Structural</span>
+</pre></div>
+</div>
+</section>
+<section id="build-your-own">
+<h2>Build Your Own<a class="headerlink" href="#build-your-own" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Create a new component:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>src/gates/or_gate.vhd<span class="w"> </span>src/gates/my_gate.vhd
+<span class="c1"># Edit the file to implement your logic</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create a testbench:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>test/gates/or_gate_tb.vhd<span class="w"> </span>test/gates/my_gate_tb.vhd
+<span class="c1"># Modify to test your component</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Test your component:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual testing</span>
+<span class="nb">cd</span><span class="w"> </span>work/
+ghdl<span class="w"> </span>-a<span class="w"> </span>../src/gates/my_gate.vhd
+ghdl<span class="w"> </span>-a<span class="w"> </span>../test/gates/my_gate_tb.vhd
+ghdl<span class="w"> </span>-e<span class="w"> </span>my_gate_tb
+ghdl<span class="w"> </span>-r<span class="w"> </span>my_gate_tb
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="understand-the-testing-framework">
+<h2>Understand the Testing Framework<a class="headerlink" href="#understand-the-testing-framework" title="Link to this heading"></a></h2>
+<p><strong>Test script details:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>scripts/run_tests.sh
+</pre></div>
+</div>
+<p><strong>Manual testing workflow:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navigate to work directory</span>
+<span class="nb">cd</span><span class="w"> </span>work/
+
+<span class="c1"># Compile source</span>
+ghdl<span class="w"> </span>-a<span class="w"> </span>../src/gates/or_gate.vhd
+
+<span class="c1"># Compile testbench</span>
+ghdl<span class="w"> </span>-a<span class="w"> </span>../test/gates/or_gate_tb.vhd
+
+<span class="c1"># Elaborate</span>
+ghdl<span class="w"> </span>-e<span class="w"> </span>or_gate_tb
+
+<span class="c1"># Run simulation</span>
+ghdl<span class="w"> </span>-r<span class="w"> </span>or_gate_tb
+</pre></div>
+</div>
+</section>
+</section>
+<section id="development-workflow">
+<h1>🔧 Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading"></a></h1>
+<p>The typical development cycle:</p>
+<ol class="arabic simple">
+<li><p><strong>Edit code</strong> in your favorite editor</p></li>
+<li><p><strong>Test changes</strong> with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></li>
+<li><p><strong>Check specific components</strong> with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-&lt;component&gt;</span></code></p></li>
+<li><p><strong>Build all</strong> with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code></p></li>
+<li><p><strong>Clean up</strong> with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code></p></li>
+</ol>
+</section>
+<section id="tips-and-tricks">
+<h1>💡 Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Link to this heading"></a></h1>
+<section id="performance">
+<h2>Performance<a class="headerlink" href="#performance" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use parallel builds</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MAKEFLAGS</span><span class="o">=</span>-j<span class="k">$(</span>nproc<span class="k">)</span><span class="w">  </span><span class="c1"># Linux</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MAKEFLAGS</span><span class="o">=</span>-j<span class="k">$(</span>sysctl<span class="w"> </span>-n<span class="w"> </span>hw.ncpu<span class="k">)</span><span class="w">  </span><span class="c1"># macOS</span>
+</pre></div>
+</div>
+</section>
+<section id="editor-setup">
+<h2>Editor Setup<a class="headerlink" href="#editor-setup" title="Link to this heading"></a></h2>
+<p><strong>VS Code:</strong> Install “VHDL Language Support” extension</p>
+<p><strong>Vim:</strong> Add to <code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span><span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.vhd <span class="k">set</span> <span class="k">filetype</span><span class="p">=</span>vhdl
+</pre></div>
+</div>
+</section>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verbose GHDL output</span>
+ghdl<span class="w"> </span>-r<span class="w"> </span>testbench<span class="w"> </span>--wave<span class="o">=</span>output.ghw
+
+<span class="c1"># View waveforms (if gtkwave is installed)</span>
+gtkwave<span class="w"> </span>output.ghw
+</pre></div>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h1>🆘 Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+<section id="common-issues">
+<h2>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h2>
+<p><strong>“GHDL not found”</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check installation</span>
+which<span class="w"> </span>ghdl
+ghdl<span class="w"> </span>--version
+</pre></div>
+</div>
+<p><strong>“Permission denied”</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make scripts executable</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>scripts/run_tests.sh
+</pre></div>
+</div>
+<p><strong>“Test failed”</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run individual test for details</span>
+<span class="nb">cd</span><span class="w"> </span>work/
+ghdl<span class="w"> </span>-a<span class="w"> </span>../src/gates/or_gate.vhd
+ghdl<span class="w"> </span>-a<span class="w"> </span>../test/gates/or_gate_tb.vhd
+ghdl<span class="w"> </span>-e<span class="w"> </span>or_gate_tb
+ghdl<span class="w"> </span>-r<span class="w"> </span>or_gate_tb<span class="w"> </span>--wave<span class="o">=</span>debug.ghw
+</pre></div>
+</div>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>📖 <strong>Documentation</strong>: Browse the full docs at <a class="reference internal" href="index.html"><span class="doc">VHDL Digital Design Samples Documentation</span></a></p></li>
+<li><p>🐛 <strong>Issues</strong>: <a class="reference external" href="https://github.com/shishir-dey/vhdl-samples/issues">GitHub Issues</a></p></li>
+<li><p>💡 <strong>Contributing</strong>: <a class="reference internal" href="development/contributing.html"><span class="doc">Contributing Guide</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="what-s-next">
+<h1>🎉 What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h1>
+<p>Congratulations! You now have a working VHDL development environment. Here are some learning paths:</p>
+<p><strong>For Beginners:</strong>
+- Start with <a class="reference internal" href="components/gates.html"><span class="doc">Basic Logic Gates</span></a>
+- Learn about <a class="reference internal" href="testing/framework.html"><span class="doc">Testing Framework</span></a>
+- Try modifying existing components</p>
+<p><strong>For Intermediate Users:</strong>
+- Explore <a class="reference internal" href="components/combinational.html"><span class="doc">Combinational Logic</span></a>
+- Study different VHDL modeling styles
+- Implement your own components</p>
+<p><strong>For Advanced Users:</strong>
+- Dive into <a class="reference internal" href="components/sequential.html"><span class="doc">Sequential Logic</span></a>
+- Set up <a class="reference internal" href="development/build_system.html"><span class="doc">Build System</span></a>
+- Contribute to the project via <a class="reference internal" href="development/contributing.html"><span class="doc">Contributing Guide</span></a></p>
+<p>Ready to dive deeper? Head to the <a class="reference internal" href="components/gates.html"><span class="doc">Basic Logic Gates</span></a> documentation!</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="project_structure.html" class="btn btn-neutral float-right" title="Project Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

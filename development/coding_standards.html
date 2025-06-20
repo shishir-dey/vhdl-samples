@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Standards &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build System" href="build_system.html" />
+    <link rel="prev" title="Contributing Guide" href="contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coding Standards</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vhdl-style-guide">VHDL Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-formatting">Code Formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#file-organization">File Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#header-comments">Header Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-declarations">Library Declarations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#entity-declaration">Entity Declaration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-best-practices">Architecture Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#signal-declarations">Signal Declarations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#process-style">Process Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-standards">Documentation Standards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#component-documentation">Component Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-standards">Testing Standards</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#testbench-structure">Testbench Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-guidelines">Quality Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synthesis-considerations">Synthesis Considerations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-guidelines">Performance Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compliance-checking">Compliance Checking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Coding Standards</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/development/coding_standards.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="coding-standards">
+<h1>Coding Standards<a class="headerlink" href="#coding-standards" title="Link to this heading"></a></h1>
+<p>VHDL coding standards and best practices for the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Following these standards ensures consistency and maintainability across all project files.</p>
+</div>
+<section id="vhdl-style-guide">
+<h2>VHDL Style Guide<a class="headerlink" href="#vhdl-style-guide" title="Link to this heading"></a></h2>
+<section id="naming-conventions">
+<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h3>
+<p><strong>Entities and Components:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">or_gate</span><span class="w"> </span><span class="k">is</span><span class="w">  </span><span class="c1">-- lowercase with underscores</span>
+<span class="w">    </span><span class="k">port</span><span class="w"> </span><span class="p">(...);</span>
+<span class="k">end</span><span class="w"> </span><span class="k">entity</span><span class="w"> </span><span class="nc">or_gate</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Architectures:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">or_gate</span><span class="w"> </span><span class="k">is</span><span class="w">  </span><span class="c1">-- PascalCase</span>
+<span class="k">begin</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">end</span><span class="w"> </span><span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Signals and Variables:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">signal</span><span class="w"> </span><span class="n">clock_signal</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">std_logic</span><span class="p">;</span><span class="w">     </span><span class="c1">-- lowercase with underscores</span>
+<span class="k">variable</span><span class="w"> </span><span class="n">temp_value</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="p">;</span><span class="w">       </span><span class="c1">-- lowercase with underscores</span>
+</pre></div>
+</div>
+<p><strong>Constants:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">constant</span><span class="w"> </span><span class="n">MAX_COUNT</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span><span class="c1">-- UPPERCASE with underscores</span>
+</pre></div>
+</div>
+</section>
+<section id="code-formatting">
+<h3>Code Formatting<a class="headerlink" href="#code-formatting" title="Link to this heading"></a></h3>
+<p><strong>Indentation</strong>: Use 2 spaces (no tabs)</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">example</span><span class="w"> </span><span class="k">is</span>
+<span class="w">  </span><span class="k">port</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">clk</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">std_logic</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rst</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="kt">std_logic</span><span class="p">;</span>
+<span class="w">    </span><span class="n">data_out</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">7</span><span class="w"> </span><span class="k">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="k">entity</span><span class="w"> </span><span class="nc">example</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Line Length</strong>: Maximum 80 characters</p>
+<p><strong>Spacing</strong>: Space around operators</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="n">result</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="n">signal_out</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+
+<span class="c1">-- Avoid</span>
+<span class="n">result</span><span class="o">&lt;=</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">;</span>
+<span class="n">signal_out</span><span class="o">&lt;=</span><span class="sc">&#39;1&#39;</span><span class="k">when</span><span class="w"> </span><span class="n">enable</span><span class="o">=</span><span class="sc">&#39;1&#39;</span><span class="k">else</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="file-organization">
+<h2>File Organization<a class="headerlink" href="#file-organization" title="Link to this heading"></a></h2>
+<section id="header-comments">
+<h3>Header Comments<a class="headerlink" href="#header-comments" title="Link to this heading"></a></h3>
+<p>Every VHDL file should start with a standard header:</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-------------------------------------------------------------------------------</span>
+<span class="c1">-- Title      : Component Name</span>
+<span class="c1">-- Project    : VHDL Digital Design Samples</span>
+<span class="c1">-------------------------------------------------------------------------------</span>
+<span class="c1">-- File       : component_name.vhd</span>
+<span class="c1">-- Author     : Author Name</span>
+<span class="c1">-- Created    : 2025-01-XX</span>
+<span class="c1">-- Last update: 2025-01-XX</span>
+<span class="c1">-- Platform   :</span>
+<span class="c1">-- Standard   : VHDL&#39;08</span>
+<span class="c1">-------------------------------------------------------------------------------</span>
+<span class="c1">-- Description: Brief description of the component functionality</span>
+<span class="c1">-------------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</section>
+<section id="library-declarations">
+<h3>Library Declarations<a class="headerlink" href="#library-declarations" title="Link to this heading"></a></h3>
+<p>Use standard libraries and be explicit:</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">library</span><span class="w"> </span><span class="nn">ieee</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">ieee.std_logic_1164.</span><span class="k">all</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">ieee.numeric_std.</span><span class="k">all</span><span class="p">;</span><span class="w">  </span><span class="c1">-- Preferred over std_logic_arith</span>
+</pre></div>
+</div>
+</section>
+<section id="entity-declaration">
+<h3>Entity Declaration<a class="headerlink" href="#entity-declaration" title="Link to this heading"></a></h3>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">component_name</span><span class="w"> </span><span class="k">is</span>
+<span class="w">  </span><span class="k">generic</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">WIDTH</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">    </span><span class="n">DEPTH</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">16</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="k">port</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">clk</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w">  </span><span class="kt">std_logic</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rst</span><span class="w">     </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w">  </span><span class="kt">std_logic</span><span class="p">;</span>
+<span class="w">    </span><span class="n">enable</span><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w">  </span><span class="kt">std_logic</span><span class="p">;</span>
+<span class="w">    </span><span class="n">data_in</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">in</span><span class="w">  </span><span class="kt">std_logic_vector</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">data_out</span><span class="o">:</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">std_logic_vector</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="k">end</span><span class="w"> </span><span class="k">entity</span><span class="w"> </span><span class="nc">component_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="architecture-best-practices">
+<h2>Architecture Best Practices<a class="headerlink" href="#architecture-best-practices" title="Link to this heading"></a></h2>
+<section id="signal-declarations">
+<h3>Signal Declarations<a class="headerlink" href="#signal-declarations" title="Link to this heading"></a></h3>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">component_name</span><span class="w"> </span><span class="k">is</span>
+<span class="w">  </span><span class="k">signal</span><span class="w"> </span><span class="n">internal_reg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">std_logic_vector</span><span class="p">(</span><span class="n">WIDTH</span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="k">signal</span><span class="w"> </span><span class="n">counter</span><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="kt">unsigned</span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="k">downto</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="k">signal</span><span class="w"> </span><span class="n">state</span><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">state_type</span><span class="p">;</span>
+<span class="k">begin</span>
+</pre></div>
+</div>
+</section>
+<section id="process-style">
+<h3>Process Style<a class="headerlink" href="#process-style" title="Link to this heading"></a></h3>
+<p><strong>Clocked Process:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="nc">clk_proc</span><span class="o">:</span><span class="w"> </span><span class="k">process</span><span class="p">(</span><span class="n">clk</span><span class="p">,</span><span class="w"> </span><span class="n">rst</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">-- Reset logic</span>
+<span class="w">    </span><span class="n">internal_reg</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">(</span><span class="k">others</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">rising_edge</span><span class="p">(</span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="c1">-- Clock logic</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="n">internal_reg</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">data_in</span><span class="p">;</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="k">process</span><span class="w"> </span><span class="nc">clk_proc</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Combinational Process:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="nc">comb_proc</span><span class="o">:</span><span class="w"> </span><span class="k">process</span><span class="p">(</span><span class="k">all</span><span class="p">)</span><span class="w">  </span><span class="c1">-- VHDL&#39;08 style</span>
+<span class="k">begin</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="k">is</span>
+<span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="n">IDLE</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">next_state</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">ACTIVE</span><span class="p">;</span>
+<span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="n">ACTIVE</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">next_state</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IDLE</span><span class="p">;</span>
+<span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="k">others</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">      </span><span class="n">next_state</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">IDLE</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">case</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="k">process</span><span class="w"> </span><span class="nc">comb_proc</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="documentation-standards">
+<h2>Documentation Standards<a class="headerlink" href="#documentation-standards" title="Link to this heading"></a></h2>
+<section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Comment complex logic and algorithms</p></li>
+<li><p>Explain the purpose, not just the implementation</p></li>
+<li><p>Use consistent comment style</p></li>
+</ul>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Calculate the next Fibonacci number</span>
+<span class="c1">-- Uses the recurrence relation: F(n) = F(n-1) + F(n-2)</span>
+<span class="n">next_fib</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">prev_fib</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">curr_fib</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="component-documentation">
+<h3>Component Documentation<a class="headerlink" href="#component-documentation" title="Link to this heading"></a></h3>
+<p>Each component should have:</p>
+<ol class="arabic simple">
+<li><p><strong>Purpose</strong>: What the component does</p></li>
+<li><p><strong>Interface</strong>: Description of ports and generics</p></li>
+<li><p><strong>Behavior</strong>: How it operates</p></li>
+<li><p><strong>Usage</strong>: Example instantiation</p></li>
+</ol>
+</section>
+</section>
+<section id="testing-standards">
+<h2>Testing Standards<a class="headerlink" href="#testing-standards" title="Link to this heading"></a></h2>
+<section id="testbench-structure">
+<h3>Testbench Structure<a class="headerlink" href="#testbench-structure" title="Link to this heading"></a></h3>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span><span class="w"> </span><span class="nc">component_tb</span><span class="w"> </span><span class="k">is</span>
+<span class="k">end</span><span class="w"> </span><span class="k">entity</span><span class="w"> </span><span class="nc">component_tb</span><span class="p">;</span>
+
+<span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nc">component_tb</span><span class="w"> </span><span class="k">is</span>
+<span class="w">  </span><span class="c1">-- Component declaration</span>
+<span class="w">  </span><span class="k">component</span><span class="w"> </span><span class="nc">component_name</span><span class="w"> </span><span class="k">is</span>
+<span class="w">    </span><span class="k">port</span><span class="w"> </span><span class="p">(...);</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">component</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">-- Test signals</span>
+<span class="w">  </span><span class="k">signal</span><span class="w"> </span><span class="n">clk_tb</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">std_logic</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">signal</span><span class="w"> </span><span class="n">rst_tb</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">std_logic</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">-- Clock period</span>
+<span class="w">  </span><span class="k">constant</span><span class="w"> </span><span class="n">CLK_PERIOD</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">time</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">ns</span><span class="p">;</span>
+<span class="k">begin</span>
+<span class="w">  </span><span class="c1">-- Clock generation</span>
+<span class="w">  </span><span class="n">clk_tb</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">clk_tb</span><span class="w"> </span><span class="k">after</span><span class="w"> </span><span class="n">CLK_PERIOD</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">-- Component instantiation</span>
+<span class="w">  </span><span class="n">uut</span><span class="o">:</span><span class="w"> </span><span class="n">component_name</span>
+<span class="w">    </span><span class="k">port</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">(...);</span>
+
+<span class="w">  </span><span class="c1">-- Test process</span>
+<span class="w">  </span><span class="nc">test_proc</span><span class="o">:</span><span class="w"> </span><span class="k">process</span>
+<span class="w">  </span><span class="k">begin</span>
+<span class="w">    </span><span class="c1">-- Test cases</span>
+<span class="w">    </span><span class="k">wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">CLK_PERIOD</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="n">rst_tb</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Assertions for verification</span>
+<span class="w">    </span><span class="k">assert</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="n">report</span><span class="w"> </span><span class="s">&quot;Error message&quot;</span><span class="w"> </span><span class="k">severity</span><span class="w"> </span><span class="n">error</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">wait</span><span class="p">;</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">process</span><span class="w"> </span><span class="nc">test_proc</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="k">architecture</span><span class="w"> </span><span class="nc">Behavioral</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="quality-guidelines">
+<h2>Quality Guidelines<a class="headerlink" href="#quality-guidelines" title="Link to this heading"></a></h2>
+<section id="synthesis-considerations">
+<h3>Synthesis Considerations<a class="headerlink" href="#synthesis-considerations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Avoid using <code class="docutils literal notranslate"><span class="pre">after</span></code> statements in synthesizable code</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">rising_edge()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">'event</span></code> for clock detection</p></li>
+<li><p>Minimize the use of <code class="docutils literal notranslate"><span class="pre">wait</span></code> statements</p></li>
+<li><p>Be explicit about reset behavior</p></li>
+</ul>
+</section>
+<section id="performance-guidelines">
+<h3>Performance Guidelines<a class="headerlink" href="#performance-guidelines" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Minimize logic depth in combinational paths</p></li>
+<li><p>Use appropriate data types (prefer <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> over <code class="docutils literal notranslate"><span class="pre">std_logic_vector</span></code> for arithmetic)</p></li>
+<li><p>Consider pipeline stages for high-speed designs</p></li>
+</ul>
+</section>
+</section>
+<section id="common-mistakes-to-avoid">
+<h2>Common Mistakes to Avoid<a class="headerlink" href="#common-mistakes-to-avoid" title="Link to this heading"></a></h2>
+<p><strong>Don’t:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Avoid multiple drivers</span>
+<span class="n">signal_a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">value1</span><span class="p">;</span>
+<span class="n">signal_a</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">value2</span><span class="p">;</span><span class="w">  </span><span class="c1">-- Error!</span>
+
+<span class="c1">-- Avoid incomplete sensitivity lists</span>
+<span class="k">process</span><span class="p">(</span><span class="n">clk</span><span class="p">)</span><span class="w">  </span><span class="c1">-- Missing rst</span>
+<span class="k">begin</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">rising_edge</span><span class="p">(</span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="k">process</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Do:</strong></p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Use proper sensitivity lists</span>
+<span class="k">process</span><span class="p">(</span><span class="n">clk</span><span class="p">,</span><span class="w"> </span><span class="n">rst</span><span class="p">)</span>
+<span class="k">begin</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="n">rst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;1&#39;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="k">elsif</span><span class="w"> </span><span class="n">rising_edge</span><span class="p">(</span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="k">end</span><span class="w"> </span><span class="k">if</span><span class="p">;</span>
+<span class="k">end</span><span class="w"> </span><span class="k">process</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="compliance-checking">
+<h2>Compliance Checking<a class="headerlink" href="#compliance-checking" title="Link to this heading"></a></h2>
+<p>Use these commands to verify compliance:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Syntax check</span>
+make<span class="w"> </span>build
+
+<span class="c1"># Run tests</span>
+make<span class="w"> </span><span class="nb">test</span>
+
+<span class="c1"># Style check (if available)</span>
+<span class="c1"># Custom linting tools can be added here</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="build_system.html" class="btn btn-neutral float-right" title="Build System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

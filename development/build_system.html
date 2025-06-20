@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build System &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="../reference/api.html" />
+    <link rel="prev" title="Coding Standards" href="coding_standards.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-targets">Make Targets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-targets">Core Targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-targets">Testing Targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-targets">Documentation Targets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utility-targets">Utility Targets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-configuration">Build Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Build System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/development/build_system.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="build-system">
+<h1>Build System<a class="headerlink" href="#build-system" title="Link to this heading"></a></h1>
+<p>Overview of the Make-based build system for VHDL development.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The project uses a comprehensive Makefile to automate:</p>
+<ul class="simple">
+<li><p><strong>Compilation</strong>: GHDL-based VHDL compilation</p></li>
+<li><p><strong>Testing</strong>: Automated test execution</p></li>
+<li><p><strong>Documentation</strong>: Sphinx documentation building</p></li>
+<li><p><strong>Project management</strong>: Statistics and cleanup</p></li>
+</ul>
+</section>
+<section id="make-targets">
+<h2>Make Targets<a class="headerlink" href="#make-targets" title="Link to this heading"></a></h2>
+<section id="core-targets">
+<h3>Core Targets<a class="headerlink" href="#core-targets" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">help</span><span class="w">          </span><span class="c1"># Show all available targets</span>
+make<span class="w"> </span><span class="nb">test</span><span class="w">          </span><span class="c1"># Run complete test suite</span>
+make<span class="w"> </span>build<span class="w">         </span><span class="c1"># Compile all VHDL sources</span>
+make<span class="w"> </span>clean<span class="w">         </span><span class="c1"># Remove build artifacts</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-targets">
+<h3>Testing Targets<a class="headerlink" href="#testing-targets" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-gates<span class="w">           </span><span class="c1"># Test basic gates only</span>
+make<span class="w"> </span>test-combinational<span class="w">   </span><span class="c1"># Test combinational logic</span>
+make<span class="w"> </span>test-sequential<span class="w">      </span><span class="c1"># Test sequential logic</span>
+make<span class="w"> </span>test-or-gate<span class="w">        </span><span class="c1"># Test specific component</span>
+make<span class="w"> </span>test-decoder<span class="w">        </span><span class="c1"># Test specific component</span>
+make<span class="w"> </span>test-dff<span class="w">            </span><span class="c1"># Test specific component</span>
+</pre></div>
+</div>
+</section>
+<section id="documentation-targets">
+<h3>Documentation Targets<a class="headerlink" href="#documentation-targets" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docs<span class="w">          </span><span class="c1"># Build documentation</span>
+make<span class="w"> </span>docs-serve<span class="w">    </span><span class="c1"># Serve documentation locally</span>
+make<span class="w"> </span>docs-dev<span class="w">      </span><span class="c1"># Development mode (build + serve)</span>
+make<span class="w"> </span>docs-clean<span class="w">    </span><span class="c1"># Clean documentation build</span>
+make<span class="w"> </span>docs-check<span class="w">    </span><span class="c1"># Check for broken links</span>
+make<span class="w"> </span>docs-install<span class="w">  </span><span class="c1"># Install Python dependencies</span>
+</pre></div>
+</div>
+</section>
+<section id="utility-targets">
+<h3>Utility Targets<a class="headerlink" href="#utility-targets" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>stats<span class="w">              </span><span class="c1"># Show project statistics</span>
+make<span class="w"> </span>list-components<span class="w">    </span><span class="c1"># List all VHDL components</span>
+make<span class="w"> </span>install<span class="w">           </span><span class="c1"># Install GHDL (macOS only)</span>
+make<span class="w"> </span>check-ghdl<span class="w">        </span><span class="c1"># Verify GHDL installation</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="build-configuration">
+<h2>Build Configuration<a class="headerlink" href="#build-configuration" title="Link to this heading"></a></h2>
+<p><strong>GHDL Settings:</strong></p>
+<ul class="simple">
+<li><p><strong>Standard</strong>: VHDL’08</p></li>
+<li><p><strong>Work Directory</strong>: <code class="docutils literal notranslate"><span class="pre">work/</span></code></p></li>
+<li><p><strong>Flags</strong>: <code class="docutils literal notranslate"><span class="pre">--std=08</span></code></p></li>
+</ul>
+<p><strong>File Organization:</strong></p>
+<p>The build system automatically discovers:</p>
+<ul class="simple">
+<li><p>Source files in <code class="docutils literal notranslate"><span class="pre">src/</span></code> hierarchy</p></li>
+<li><p>Test files in <code class="docutils literal notranslate"><span class="pre">test/</span></code> hierarchy</p></li>
+<li><p>Builds in isolated <code class="docutils literal notranslate"><span class="pre">work/</span></code> directory</p></li>
+</ul>
+<p><strong>Parallel Execution:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use multiple CPU cores</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MAKEFLAGS</span><span class="o">=</span>-j<span class="k">$(</span>nproc<span class="k">)</span><span class="w">  </span><span class="c1"># Linux</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MAKEFLAGS</span><span class="o">=</span>-j<span class="k">$(</span>sysctl<span class="w"> </span>-n<span class="w"> </span>hw.ncpu<span class="k">)</span><span class="w">  </span><span class="c1"># macOS</span>
+</pre></div>
+</div>
+</section>
+<section id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Link to this heading"></a></h2>
+<p><strong>Environment Variables:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">GHDL</span><span class="o">=</span>ghdl-custom<span class="w">     </span><span class="c1"># Use custom GHDL binary</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GHDL_FLAGS</span><span class="o">=</span><span class="s2">&quot;--std=93&quot;</span><span class="w"> </span><span class="c1"># Use VHDL&#39;93 standard</span>
+</pre></div>
+</div>
+<p><strong>Adding New Targets:</strong></p>
+<p>To add a new component test:</p>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nf">test-my-component</span><span class="o">:</span><span class="w"> </span><span class="n">check</span>-<span class="n">ghdl</span> <span class="k">$(</span><span class="nv">WORK_DIR</span><span class="k">)</span>
+<span class="w">     </span>@cd<span class="w"> </span><span class="k">$(</span>WORK_DIR<span class="k">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="k">$(</span>GHDL<span class="k">)</span><span class="w"> </span>-a<span class="w"> </span>../src/path/my_component.vhd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="k">$(</span>GHDL<span class="k">)</span><span class="w"> </span>-a<span class="w"> </span>../test/path/my_component_tb.vhd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="k">$(</span>GHDL<span class="k">)</span><span class="w"> </span>-e<span class="w"> </span>my_component_tb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="k">$(</span>GHDL<span class="k">)</span><span class="w"> </span>-r<span class="w"> </span>my_component_tb<span class="w"> </span>--stop-time<span class="o">=</span>1ms<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">     </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>GREEN<span class="k">)</span><span class="s2">✓ My Component test passed</span><span class="k">$(</span>NC<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p><strong>Required Tools:</strong></p>
+<ul class="simple">
+<li><p><strong>GHDL</strong>: VHDL compiler and simulator</p></li>
+<li><p><strong>Make</strong>: Build automation (GNU Make 3.81+)</p></li>
+<li><p><strong>Git</strong>: Version control</p></li>
+</ul>
+<p><strong>Optional Tools:</strong></p>
+<ul class="simple">
+<li><p><strong>Python 3.7+</strong>: For documentation</p></li>
+<li><p><strong>GTKWave</strong>: Waveform viewer for debugging</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coding_standards.html" class="btn btn-neutral float-left" title="Coding Standards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../reference/api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

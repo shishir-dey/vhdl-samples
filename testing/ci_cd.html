@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CI/CD Pipeline &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing Guide" href="../development/contributing.html" />
+    <link rel="prev" title="Test Coverage" href="coverage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Test Coverage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CI/CD Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-actions-workflows">GitHub Actions Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vhdl-testing-workflow">VHDL Testing Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-workflow">Documentation Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#local-development">Local Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#status-badges">Status Badges</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CI/CD Pipeline</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/testing/ci_cd.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ci-cd-pipeline">
+<h1>CI/CD Pipeline<a class="headerlink" href="#ci-cd-pipeline" title="Link to this heading"></a></h1>
+<p>Continuous Integration and Deployment setup for the VHDL project.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The project uses GitHub Actions for automated testing and documentation deployment:</p>
+<ul class="simple">
+<li><p><strong>VHDL Tests</strong>: Automated on every push and pull request</p></li>
+<li><p><strong>Documentation</strong>: Built and deployed to GitHub Pages</p></li>
+<li><p><strong>Multi-platform</strong>: Tested on Ubuntu with GHDL</p></li>
+</ul>
+</section>
+<section id="github-actions-workflows">
+<h2>GitHub Actions Workflows<a class="headerlink" href="#github-actions-workflows" title="Link to this heading"></a></h2>
+<section id="vhdl-testing-workflow">
+<h3>VHDL Testing Workflow<a class="headerlink" href="#vhdl-testing-workflow" title="Link to this heading"></a></h3>
+<p><strong>File</strong>: <code class="docutils literal notranslate"><span class="pre">.github/workflows/test.yml</span></code></p>
+<p><strong>Triggers</strong>:
+- Push to <code class="docutils literal notranslate"><span class="pre">master</span></code> or <code class="docutils literal notranslate"><span class="pre">main</span></code> branches
+- Pull requests to <code class="docutils literal notranslate"><span class="pre">master</span></code> or <code class="docutils literal notranslate"><span class="pre">main</span></code> branches</p>
+<p><strong>Steps</strong>:
+1. Install GHDL on Ubuntu
+2. Make test scripts executable
+3. Run complete test suite
+4. Upload test results as artifacts</p>
+</section>
+<section id="documentation-workflow">
+<h3>Documentation Workflow<a class="headerlink" href="#documentation-workflow" title="Link to this heading"></a></h3>
+<p><strong>File</strong>: <code class="docutils literal notranslate"><span class="pre">.github/workflows/docs.yml</span></code></p>
+<p><strong>Triggers</strong>:
+- Push to <code class="docutils literal notranslate"><span class="pre">master</span></code> or <code class="docutils literal notranslate"><span class="pre">main</span></code> branches
+- Manual workflow dispatch</p>
+<p><strong>Steps</strong>:
+1. Install Python and Sphinx dependencies
+2. Build documentation with Sphinx
+3. Deploy to GitHub Pages</p>
+</section>
+</section>
+<section id="local-development">
+<h2>Local Development<a class="headerlink" href="#local-development" title="Link to this heading"></a></h2>
+<p><strong>Test locally:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p><strong>Build documentation locally:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docs
+make<span class="w"> </span>docs-serve
+</pre></div>
+</div>
+</section>
+<section id="status-badges">
+<h2>Status Badges<a class="headerlink" href="#status-badges" title="Link to this heading"></a></h2>
+<p>The project includes status badges for:</p>
+<ul class="simple">
+<li><p><strong>Test Status</strong>: Shows if all tests are passing</p></li>
+<li><p><strong>Documentation Status</strong>: Shows documentation build status</p></li>
+<li><p><strong>GitHub Pages</strong>: Shows deployment status</p></li>
+</ul>
+<p>These badges are displayed on the main project README and documentation homepage.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coverage.html" class="btn btn-neutral float-left" title="Test Coverage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../development/contributing.html" class="btn btn-neutral float-right" title="Contributing Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

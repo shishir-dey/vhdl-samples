@@ -1,0 +1,16 @@
+# Auto-generated project statistics
+Project Statistics
+==================
+
+Generated on: Fri Jun 20 10:37:58 UTC 2025
+
+===================
+Total VHDL files: 32
+Total test files: 8
+Lines of code: 1754
+
+[1;33mFiles by category:[0m
+Gates: 3
+Combinational: 19
+Sequential: 10
+Modules: 0

@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing Framework &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Test Coverage" href="coverage.html" />
+    <link rel="prev" title="Complex Modules" href="../components/modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-structure">Test Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-organization">Test Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-naming-convention">Test Naming Convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-methodology">Test Methodology</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Testing Framework</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/testing/framework.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="testing-framework">
+<h1>Testing Framework<a class="headerlink" href="#testing-framework" title="Link to this heading"></a></h1>
+<p>Documentation for the VHDL testing infrastructure and methodologies.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section provides details about the project’s testing approach and tools.</p>
+</div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The VHDL Digital Design Samples project uses a comprehensive testing framework built around:</p>
+<ul class="simple">
+<li><p><strong>GHDL</strong>: Open-source VHDL simulator</p></li>
+<li><p><strong>Assertion-based testing</strong>: Built-in VHDL assertions for verification</p></li>
+<li><p><strong>Automated test runner</strong>: Shell script for batch testing</p></li>
+<li><p><strong>Make integration</strong>: Convenient build system targets</p></li>
+</ul>
+</section>
+<section id="test-structure">
+<h2>Test Structure<a class="headerlink" href="#test-structure" title="Link to this heading"></a></h2>
+<p>All tests follow a consistent pattern and are organized to mirror the source structure.</p>
+<section id="test-organization">
+<h3>Test Organization<a class="headerlink" href="#test-organization" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>test/
+├── gates/              # Basic gate tests
+├── combinational/      # Combinational logic tests
+└── sequential/         # Sequential logic tests
+</pre></div>
+</div>
+</section>
+<section id="test-naming-convention">
+<h3>Test Naming Convention<a class="headerlink" href="#test-naming-convention" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Source file</strong>: <code class="docutils literal notranslate"><span class="pre">component_name.vhd</span></code></p></li>
+<li><p><strong>Test file</strong>: <code class="docutils literal notranslate"><span class="pre">component_name_tb.vhd</span></code> or <code class="docutils literal notranslate"><span class="pre">component_name_testbench.vhd</span></code></p></li>
+<li><p><strong>Test entity</strong>: Matches testbench filename</p></li>
+</ul>
+</section>
+</section>
+<section id="running-tests">
+<h2>Running Tests<a class="headerlink" href="#running-tests" title="Link to this heading"></a></h2>
+<p><strong>Run all tests:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p><strong>Run by category:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-gates
+make<span class="w"> </span>test-combinational
+make<span class="w"> </span>test-sequential
+</pre></div>
+</div>
+<p><strong>Run individual tests:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>test-or-gate
+make<span class="w"> </span>test-decoder
+make<span class="w"> </span>test-dff
+</pre></div>
+</div>
+</section>
+<section id="test-methodology">
+<h2>Test Methodology<a class="headerlink" href="#test-methodology" title="Link to this heading"></a></h2>
+<p>Each testbench follows these principles:</p>
+<ol class="arabic simple">
+<li><p><strong>Complete coverage</strong>: Test all input combinations where feasible</p></li>
+<li><p><strong>Assertion-based verification</strong>: Use VHDL assertions for automatic checking</p></li>
+<li><p><strong>Clear timing</strong>: Proper setup and hold times</p></li>
+<li><p><strong>Self-checking</strong>: Tests pass or fail without manual inspection</p></li>
+</ol>
+<p>For more details, see <a class="reference internal" href="coverage.html"><span class="doc">Test Coverage</span></a> and <a class="reference internal" href="ci_cd.html"><span class="doc">CI/CD Pipeline</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../components/modules.html" class="btn btn-neutral float-left" title="Complex Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coverage.html" class="btn btn-neutral float-right" title="Test Coverage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing Guide &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=30646c52"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coding Standards" href="coding_standards.html" />
+    <link rel="prev" title="CI/CD Pipeline" href="../testing/ci_cd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project_structure.html">Project Structure</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing/ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-setup">Development Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coding-standards">Coding Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-changes">Submitting Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pull-request-guidelines">Pull Request Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#types-of-contributions">Types of Contributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributing Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/development/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing-guide">
+<h1>Contributing Guide<a class="headerlink" href="#contributing-guide" title="Link to this heading"></a></h1>
+<p>How to contribute to the VHDL Digital Design Samples project.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Fork the repository</strong> on GitHub</p></li>
+<li><p><strong>Clone your fork</strong> locally</p></li>
+<li><p><strong>Set up the development environment</strong></p></li>
+<li><p><strong>Create a feature branch</strong> for your changes</p></li>
+<li><p><strong>Make your changes</strong> following the coding standards</p></li>
+<li><p><strong>Test your changes</strong> thoroughly</p></li>
+<li><p><strong>Submit a pull request</strong></p></li>
+</ol>
+</section>
+<section id="development-setup">
+<h2>Development Setup<a class="headerlink" href="#development-setup" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone your fork</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/shishir-dey/vhdl-samples.git
+<span class="nb">cd</span><span class="w"> </span>vhdl-samples
+
+<span class="c1"># Install GHDL</span>
+make<span class="w"> </span>install<span class="w">  </span><span class="c1"># macOS</span>
+<span class="c1"># or sudo apt-get install ghdl  # Ubuntu</span>
+
+<span class="c1"># Install documentation dependencies (optional)</span>
+make<span class="w"> </span>docs-install
+
+<span class="c1"># Run tests to verify setup</span>
+make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+</section>
+<section id="coding-standards">
+<h2>Coding Standards<a class="headerlink" href="#coding-standards" title="Link to this heading"></a></h2>
+<p><strong>VHDL Code Style:</strong></p>
+<ul class="simple">
+<li><p>Use lowercase with underscores for entity names</p></li>
+<li><p>Use PascalCase for architecture names</p></li>
+<li><p>Follow consistent indentation (2 spaces)</p></li>
+<li><p>Include comprehensive comments</p></li>
+</ul>
+<p><strong>File Organization:</strong></p>
+<ul class="simple">
+<li><p>Place source files in appropriate <code class="docutils literal notranslate"><span class="pre">src/</span></code> subdirectories</p></li>
+<li><p>Create corresponding test files in <code class="docutils literal notranslate"><span class="pre">test/</span></code> subdirectories</p></li>
+<li><p>Follow existing naming conventions</p></li>
+</ul>
+<p><strong>Testing Requirements:</strong></p>
+<ul class="simple">
+<li><p>Every new component must have a testbench</p></li>
+<li><p>Tests should be comprehensive and self-checking</p></li>
+<li><p>Use assertions for automatic verification</p></li>
+</ul>
+</section>
+<section id="submitting-changes">
+<h2>Submitting Changes<a class="headerlink" href="#submitting-changes" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Create a feature branch</strong>: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature/new-component</span></code></p></li>
+<li><p><strong>Make your changes</strong> with clear, descriptive commits</p></li>
+<li><p><strong>Run tests</strong>: <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> to ensure nothing breaks</p></li>
+<li><p><strong>Update documentation</strong> if needed</p></li>
+<li><p><strong>Push to your fork</strong>: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">feature/new-component</span></code></p></li>
+<li><p><strong>Open a pull request</strong> with a clear description</p></li>
+</ol>
+</section>
+<section id="pull-request-guidelines">
+<h2>Pull Request Guidelines<a class="headerlink" href="#pull-request-guidelines" title="Link to this heading"></a></h2>
+<p><strong>Good Pull Requests:</strong></p>
+<ul class="simple">
+<li><p>Have a clear, descriptive title</p></li>
+<li><p>Include a detailed description of changes</p></li>
+<li><p>Reference any related issues</p></li>
+<li><p>Include tests for new functionality</p></li>
+<li><p>Update documentation when needed</p></li>
+<li><p>Pass all existing tests</p></li>
+</ul>
+<p><strong>Review Process:</strong></p>
+<ul class="simple">
+<li><p>Maintainers will review your PR</p></li>
+<li><p>Address any feedback promptly</p></li>
+<li><p>Be patient - reviews may take time</p></li>
+<li><p>Keep your PR up to date with the main branch</p></li>
+</ul>
+</section>
+<section id="types-of-contributions">
+<h2>Types of Contributions<a class="headerlink" href="#types-of-contributions" title="Link to this heading"></a></h2>
+<p><strong>New Components:</strong></p>
+<ul class="simple">
+<li><p>Logic gates and basic circuits</p></li>
+<li><p>Combinational logic designs</p></li>
+<li><p>Sequential logic implementations</p></li>
+<li><p>Complex digital systems</p></li>
+</ul>
+<p><strong>Documentation:</strong></p>
+<ul class="simple">
+<li><p>Component documentation</p></li>
+<li><p>Tutorial improvements</p></li>
+<li><p>API documentation</p></li>
+<li><p>Example code</p></li>
+</ul>
+<p><strong>Testing:</strong></p>
+<ul class="simple">
+<li><p>New testbenches for existing components</p></li>
+<li><p>Improved test coverage</p></li>
+<li><p>Performance benchmarks</p></li>
+<li><p>CI/CD improvements</p></li>
+</ul>
+<p><strong>Bug Fixes:</strong></p>
+<ul class="simple">
+<li><p>VHDL syntax errors</p></li>
+<li><p>Simulation issues</p></li>
+<li><p>Documentation corrections</p></li>
+<li><p>Build system improvements</p></li>
+</ul>
+</section>
+<section id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading"></a></h2>
+<p>Be respectful and constructive in all interactions. This is an educational project aimed at helping people learn VHDL.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../testing/ci_cd.html" class="btn btn-neutral float-left" title="CI/CD Pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coding_standards.html" class="btn btn-neutral float-right" title="Coding Standards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

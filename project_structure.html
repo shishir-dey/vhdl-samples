@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Structure &mdash; VHDL Digital Design Samples</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=1f4bd03f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+      <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+      <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Logic Gates" href="components/gates.html" />
+    <link rel="prev" title="Quick Start Guide" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            VHDL Digital Design Samples
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#minute-setup">⚡ 5-Minute Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#your-first-vhdl-component">🚀 Your First VHDL Component</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#explore-different-categories">🧪 Explore Different Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#project-overview">📊 Project Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#next-steps">🎯 Next Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#development-workflow">🔧 Development Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#tips-and-tricks">💡 Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#troubleshooting">🆘 Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#what-s-next">🎉 What’s Next?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-layout">Directory Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-organization">Source Code Organization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-gates-src-gates">Basic Gates (<code class="docutils literal notranslate"><span class="pre">src/gates/</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combinational-logic-src-combinational">Combinational Logic (<code class="docutils literal notranslate"><span class="pre">src/combinational/</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sequential-logic-src-sequential">Sequential Logic (<code class="docutils literal notranslate"><span class="pre">src/sequential/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#test-structure">Test Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#naming-conventions">Naming Conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-naming">File Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vhdl-naming">VHDL Naming</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#build-system-architecture">Build System Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#makefile-targets">Makefile Targets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-architecture">Documentation Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies-and-tools">Dependencies and Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-dependencies">Core Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-dependencies">Documentation Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ci-cd-pipeline">CI/CD Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-files">Workflow Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scalability-considerations">Scalability Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design-for-growth">Design for Growth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation-tips">Navigation Tips</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Component Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="components/gates.html">Basic Logic Gates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/combinational.html">Combinational Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/sequential.html">Sequential Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/modules.html">Complex Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Testing &amp; Verification:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testing/framework.html">Testing Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing/coverage.html">Test Coverage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing/ci_cd.html">CI/CD Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development/contributing.html">Contributing Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/coding_standards.html">Coding Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development/build_system.html">Build System</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VHDL Digital Design Samples</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Project Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/project_structure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="project-structure">
+<h1>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h1>
+<p>Understanding the organization and architecture of the VHDL Digital Design Samples project.</p>
+<nav class="contents local" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#directory-layout" id="id2">Directory Layout</a></p></li>
+<li><p><a class="reference internal" href="#source-code-organization" id="id3">Source Code Organization</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-gates-src-gates" id="id4">Basic Gates (<code class="docutils literal notranslate"><span class="pre">src/gates/</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#combinational-logic-src-combinational" id="id5">Combinational Logic (<code class="docutils literal notranslate"><span class="pre">src/combinational/</span></code>)</a></p></li>
+<li><p><a class="reference internal" href="#sequential-logic-src-sequential" id="id6">Sequential Logic (<code class="docutils literal notranslate"><span class="pre">src/sequential/</span></code>)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#test-structure" id="id7">Test Structure</a></p></li>
+<li><p><a class="reference internal" href="#naming-conventions" id="id8">Naming Conventions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#file-naming" id="id9">File Naming</a></p></li>
+<li><p><a class="reference internal" href="#vhdl-naming" id="id10">VHDL Naming</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#build-system-architecture" id="id11">Build System Architecture</a></p>
+<ul>
+<li><p><a class="reference internal" href="#makefile-targets" id="id12">Makefile Targets</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#documentation-architecture" id="id13">Documentation Architecture</a></p></li>
+<li><p><a class="reference internal" href="#dependencies-and-tools" id="id14">Dependencies and Tools</a></p>
+<ul>
+<li><p><a class="reference internal" href="#core-dependencies" id="id15">Core Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#documentation-dependencies" id="id16">Documentation Dependencies</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ci-cd-pipeline" id="id17">CI/CD Pipeline</a></p>
+<ul>
+<li><p><a class="reference internal" href="#workflow-files" id="id18">Workflow Files</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#scalability-considerations" id="id19">Scalability Considerations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#design-for-growth" id="id20">Design for Growth</a></p></li>
+<li><p><a class="reference internal" href="#best-practices" id="id21">Best Practices</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#navigation-tips" id="id22">Navigation Tips</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The project follows a hierarchical structure designed for educational purposes, separating source code, tests, documentation, and build scripts into logical directories.</p>
+</section>
+<section id="directory-layout">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Directory Layout</a><a class="headerlink" href="#directory-layout" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>vhdl-samples/
+├── 📁 src/                    # Source code (VHDL designs)
+│   ├── 📁 gates/              # Basic logic gates
+│   ├── 📁 combinational/      # Combinational circuits
+│   │   ├── 📁 adders/         # Addition circuits
+│   │   ├── 📁 decoders/       # Decoder circuits
+│   │   ├── 📁 multiplexers/   # MUX/DEMUX circuits
+│   │   ├── 📁 comparators/    # Comparison circuits
+│   │   └── 📁 shifters/       # Bit shifting circuits
+│   ├── 📁 sequential/         # Sequential circuits
+│   │   ├── 📁 flip_flops/     # Flip-flop implementations
+│   │   ├── 📁 latches/        # Latch implementations
+│   │   ├── 📁 registers/      # Register implementations
+│   │   ├── 📁 counters/       # Counter implementations
+│   │   └── 📁 state_machines/ # FSM implementations
+│   └── 📁 modules/            # Complex/mixed modules
+├── 📁 test/                   # Test files (mirroring src/)
+│   ├── 📁 gates/
+│   ├── 📁 combinational/
+│   └── 📁 sequential/
+├── 📁 docs/                   # Documentation (Sphinx)
+│   ├── 📁 _static/            # Static assets (CSS, images)
+│   ├── 📁 components/         # Component documentation
+│   ├── 📁 testing/            # Testing documentation
+│   └── 📁 development/        # Development guides
+├── 📁 scripts/                # Build and utility scripts
+├── 📁 .github/workflows/      # CI/CD workflows
+├── 📄 Makefile                # Build system
+├── 📄 README.md               # Project overview
+└── 📄 LICENSE                 # MIT License
+</pre></div>
+</div>
+</section>
+<section id="source-code-organization">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Source Code Organization</a><a class="headerlink" href="#source-code-organization" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">src/</span></code> directory is organized by complexity and circuit type:</p>
+<section id="basic-gates-src-gates">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Basic Gates (<code class="docutils literal notranslate"><span class="pre">src/gates/</span></code>)</a><a class="headerlink" href="#basic-gates-src-gates" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Modeling Style</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">or_gate.vhd</span></code></p></td>
+<td><p>4-input OR gate</p></td>
+<td><p>Behavioral</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">xor_3.vhd</span></code></p></td>
+<td><p>3-input XOR gate</p></td>
+<td><p>Dataflow</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">my_xor.vhd</span></code></p></td>
+<td><p>2-input XOR (structural)</p></td>
+<td><p>Structural</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="combinational-logic-src-combinational">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Combinational Logic (<code class="docutils literal notranslate"><span class="pre">src/combinational/</span></code>)</a><a class="headerlink" href="#combinational-logic-src-combinational" title="Link to this heading"></a></h3>
+<p><strong>Adders (``adders/``):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 45.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Key Features</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Half Adders</p></td>
+<td><p>1-bit addition (no carry-in)</p></td>
+<td><p>Basic building block</p></td>
+</tr>
+<tr class="row-odd"><td><p>Full Adders</p></td>
+<td><p>1-bit addition (with carry)</p></td>
+<td><p>Multiple implementations</p></td>
+</tr>
+<tr class="row-even"><td><p>4-bit Adders</p></td>
+<td><p>Multi-bit arithmetic</p></td>
+<td><p>Ripple carry design</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decoders (``decoders/``):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 45.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Outputs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">decoder_2x4.vhd</span></code></p></td>
+<td><p>2-to-4 line decoder</p></td>
+<td><p>4 outputs</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">decoder_3x8_str.vhd</span></code></p></td>
+<td><p>3-to-8 decoder (structural)</p></td>
+<td><p>8 outputs</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Multiplexers (``multiplexers/``):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 45.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Select Lines</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mux_2x1_df.vhd</span></code></p></td>
+<td><p>2-to-1 MUX (dataflow)</p></td>
+<td><p>1 bit</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mux_4x1_str.vhd</span></code></p></td>
+<td><p>4-to-1 MUX (structural)</p></td>
+<td><p>2 bits</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mux_8x1_str.vhd</span></code></p></td>
+<td><p>8-to-1 MUX (structural)</p></td>
+<td><p>3 bits</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sequential-logic-src-sequential">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Sequential Logic (<code class="docutils literal notranslate"><span class="pre">src/sequential/</span></code>)</a><a class="headerlink" href="#sequential-logic-src-sequential" title="Link to this heading"></a></h3>
+<p><strong>Flip-Flops (``flip_flops/``):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 45.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Features</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d_flip_flop.vhd</span></code></p></td>
+<td><p>D flip-flop</p></td>
+<td><p>Edge-triggered</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">t_flip_flop.vhd</span></code></p></td>
+<td><p>T flip-flop</p></td>
+<td><p>Toggle functionality</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Registers (``registers/``):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 45.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Width</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">register_8_bit.vhd</span></code></p></td>
+<td><p>8-bit register</p></td>
+<td><p>8 bits</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pipo_4bit_behave.vhd</span></code></p></td>
+<td><p>4-bit PIPO register</p></td>
+<td><p>4 bits</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="test-structure">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Test Structure</a><a class="headerlink" href="#test-structure" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">test/</span></code> directory mirrors the <code class="docutils literal notranslate"><span class="pre">src/</span></code> structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>test/
+├── 📁 gates/
+│   ├── or_gate_tb.vhd         # Tests all 16 input combinations
+│   └── xor_testbench.vhd      # Tests XOR functionality
+├── 📁 combinational/
+│   ├── 📁 adders/
+│   │   ├── fa_testbench.vhd   # Full adder tests
+│   │   ├── ha_behave_tb.vhd   # Half adder tests
+│   │   └── rc_adder_testbench.vhd  # 4-bit adder tests
+│   ├── 📁 decoders/
+│   │   └── decoder_2x4_testbench.vhd
+│   └── 📁 multiplexers/
+│       └── mux_2x1_tb.vhd
+└── 📁 sequential/
+    └── 📁 flip_flops/
+        └── d_flip_flop_tb.vhd
+</pre></div>
+</div>
+</section>
+<section id="naming-conventions">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Naming Conventions</a><a class="headerlink" href="#naming-conventions" title="Link to this heading"></a></h2>
+<section id="file-naming">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">File Naming</a><a class="headerlink" href="#file-naming" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Source files</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;component_name&gt;.vhd</span></code></p></li>
+<li><p><strong>Testbenches</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;component_name&gt;_tb.vhd</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;component_name&gt;_testbench.vhd</span></code></p></li>
+<li><p><strong>Entity names</strong>: Match filename (e.g., <code class="docutils literal notranslate"><span class="pre">or_gate</span></code> entity in <code class="docutils literal notranslate"><span class="pre">or_gate.vhd</span></code>)</p></li>
+</ul>
+</section>
+<section id="vhdl-naming">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">VHDL Naming</a><a class="headerlink" href="#vhdl-naming" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Entities</strong>: lowercase with underscores (<code class="docutils literal notranslate"><span class="pre">d_flip_flop</span></code>)</p></li>
+<li><p><strong>Architectures</strong>: PascalCase (<code class="docutils literal notranslate"><span class="pre">Behavioral</span></code>, <code class="docutils literal notranslate"><span class="pre">Dataflow</span></code>, <code class="docutils literal notranslate"><span class="pre">Structural</span></code>)</p></li>
+<li><p><strong>Signals</strong>: lowercase with underscores (<code class="docutils literal notranslate"><span class="pre">clk_signal</span></code>)</p></li>
+<li><p><strong>Ports</strong>: uppercase (<code class="docutils literal notranslate"><span class="pre">CLK</span></code>, <code class="docutils literal notranslate"><span class="pre">DATA_IN</span></code>, <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>)</p></li>
+</ul>
+</section>
+</section>
+<section id="build-system-architecture">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Build System Architecture</a><a class="headerlink" href="#build-system-architecture" title="Link to this heading"></a></h2>
+<p>The project uses a multi-layered build system:</p>
+graph TD
+    A[Developer] --&gt; B[Makefile]
+    B --&gt; C[Test Scripts]
+    B --&gt; D[Build Scripts]
+    B --&gt; E[Documentation]
+
+    C --&gt; F[GHDL Compiler]
+    D --&gt; F
+    E --&gt; G[Sphinx]
+
+    F --&gt; H[Simulation Results]
+    G --&gt; I[HTML Documentation]
+
+    J[GitHub Actions] --&gt; B
+    J --&gt; K[Deploy to Pages]<section id="makefile-targets">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Makefile Targets</a><a class="headerlink" href="#makefile-targets" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 55.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Target</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">test</span></code></p></td>
+<td><p>Run all tests</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">test-gates</span></code></p></td>
+<td><p>Test basic gates only</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-gates</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">test-&lt;component&gt;</span></code></p></td>
+<td><p>Test specific component</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test-or-gate</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">build</span></code></p></td>
+<td><p>Syntax check all files</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stats</span></code></p></td>
+<td><p>Show project statistics</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">stats</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clean</span></code></p></td>
+<td><p>Remove build artifacts</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="documentation-architecture">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Documentation Architecture</a><a class="headerlink" href="#documentation-architecture" title="Link to this heading"></a></h2>
+<p>Sphinx-based documentation system:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>docs/
+├── 📄 conf.py                 # Sphinx configuration
+├── 📄 index.rst               # Main documentation page
+├── 📄 installation.rst        # Installation guide
+├── 📄 quickstart.rst          # Quick start guide
+├── 📁 components/             # Component documentation
+│   ├── gates.rst
+│   ├── combinational.rst
+│   └── sequential.rst
+├── 📁 testing/                # Testing documentation
+└── 📁 development/            # Development guides
+</pre></div>
+</div>
+</section>
+<section id="dependencies-and-tools">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Dependencies and Tools</a><a class="headerlink" href="#dependencies-and-tools" title="Link to this heading"></a></h2>
+<section id="core-dependencies">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Core Dependencies</a><a class="headerlink" href="#core-dependencies" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GHDL</p></td>
+<td><p>VHDL compiler/simulator</p></td>
+<td><p>5.0.1+</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Make</p></td>
+<td><p>Build automation</p></td>
+<td><p>3.81+</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Git</p></td>
+<td><p>Version control</p></td>
+<td><p>2.0+</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="documentation-dependencies">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Documentation Dependencies</a><a class="headerlink" href="#documentation-dependencies" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 40.0%" />
+<col style="width: 20.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Package</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sphinx</p></td>
+<td><p>Documentation generator</p></td>
+<td><p>7.0.0+</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Read the Docs Theme</p></td>
+<td><p>Documentation theme</p></td>
+<td><p>2.0.0+</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>MyST Parser</p></td>
+<td><p>Markdown support</p></td>
+<td><p>2.0.0+</p></td>
+<td><p>Optional</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="ci-cd-pipeline">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">CI/CD Pipeline</a><a class="headerlink" href="#ci-cd-pipeline" title="Link to this heading"></a></h2>
+<p>The project uses GitHub Actions for continuous integration:</p>
+graph LR
+    A[Git Push] --&gt; B[GitHub Actions]
+    B --&gt; C[Install GHDL]
+    B --&gt; D[Install Python]
+    C --&gt; E[Run Tests]
+    D --&gt; F[Build Docs]
+    E --&gt; G[Test Results]
+    F --&gt; H[Deploy to Pages]<section id="workflow-files">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Workflow Files</a><a class="headerlink" href="#workflow-files" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 50.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Triggers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.github/workflows/test.yml</span></code></p></td>
+<td><p>Run VHDL tests</p></td>
+<td><p>Push/PR</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">.github/workflows/docs.yml</span></code></p></td>
+<td><p>Build/deploy docs</p></td>
+<td><p>Push to main</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="scalability-considerations">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Scalability Considerations</a><a class="headerlink" href="#scalability-considerations" title="Link to this heading"></a></h2>
+<section id="design-for-growth">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Design for Growth</a><a class="headerlink" href="#design-for-growth" title="Link to this heading"></a></h3>
+<p>The structure is designed to accommodate:</p>
+<ul class="simple">
+<li><p><strong>New component categories</strong>: Add directories under <code class="docutils literal notranslate"><span class="pre">src/</span></code></p></li>
+<li><p><strong>More complex designs</strong>: Use <code class="docutils literal notranslate"><span class="pre">src/modules/</span></code> for mixed designs</p></li>
+<li><p><strong>Extended testing</strong>: Parallel test structure in <code class="docutils literal notranslate"><span class="pre">test/</span></code></p></li>
+<li><p><strong>Documentation expansion</strong>: Modular Sphinx documentation</p></li>
+</ul>
+</section>
+<section id="best-practices">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Best Practices</a><a class="headerlink" href="#best-practices" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Separation of Concerns</strong>: Clear boundaries between source, tests, and docs</p></li>
+<li><p><strong>Consistent Naming</strong>: Follow established conventions</p></li>
+<li><p><strong>Modular Design</strong>: Each component is self-contained</p></li>
+<li><p><strong>Comprehensive Testing</strong>: Every component should have tests</p></li>
+<li><p><strong>Living Documentation</strong>: Keep docs synchronized with code</p></li>
+</ol>
+</section>
+</section>
+<section id="navigation-tips">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Navigation Tips</a><a class="headerlink" href="#navigation-tips" title="Link to this heading"></a></h2>
+<p><strong>Finding Components:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find all adders</span>
+find<span class="w"> </span>src/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*adder*&quot;</span>
+
+<span class="c1"># Find all testbenches</span>
+find<span class="w"> </span>test/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*tb.vhd&quot;</span>
+
+<span class="c1"># Count files by category</span>
+find<span class="w"> </span>src/gates/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.vhd&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</pre></div>
+</div>
+<p><strong>Understanding Dependencies:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Search for component usage</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;component.*mux_2x1&quot;</span><span class="w"> </span>src/
+
+<span class="c1"># Find entity definitions</span>
+grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;entity.*is&quot;</span><span class="w"> </span>src/
+</pre></div>
+</div>
+<p><strong>Project Statistics:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quick overview</span>
+make<span class="w"> </span>stats
+
+<span class="c1"># Detailed analysis</span>
+find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.vhd&quot;</span><span class="w"> </span>-exec<span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n
+</pre></div>
+</div>
+<p>This structure provides a solid foundation for learning VHDL while maintaining professional organization and scalability.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="components/gates.html" class="btn btn-neutral float-right" title="Basic Logic Gates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Shishir Dey.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
